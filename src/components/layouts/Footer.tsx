@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { STYLE } from 'consts'
 
-import { ExtLink, Text, Row, View, Container } from 'components'
+import { Text, Row, View, Container } from 'components'
 
 const StyledContainer = styled(Container)`
   display: flex;
@@ -30,20 +30,20 @@ const StyledText = styled(Text)`
 `
 
 const Footer = (): ReactElement => {
-  const community = [
-    {
-      href: `https://docs.mirror.finance/user-guide/terra-bridge`,
-      title: 'DOCS',
-    },
-    {
-      href: `https://discord.gg/EuKCeGFb93`,
-      title: 'Discord',
-    },
-    {
-      href: `https://github.com/terra-project/bridge-web-app`,
-      title: 'Github',
-    },
-  ]
+  // const community = [
+  //   {
+  //     href: `https://docs.mirror.finance/user-guide/terra-bridge`,
+  //     title: 'DOCS',
+  //   },
+  //   {
+  //     href: `https://discord.gg/EuKCeGFb93`,
+  //     title: 'Discord',
+  //   },
+  //   {
+  //     href: `https://github.com/terra-project/bridge-web-app`,
+  //     title: 'Github',
+  //   },
+  // ]
   return (
     <StyledContainer>
       <Row
@@ -68,7 +68,7 @@ const Footer = (): ReactElement => {
             marginTop: window.innerWidth > 575 ? 0 : 12,
           }}
         >
-          {community.map(
+          {/* {community.map(
             ({ href, title }) =>
               href && (
                 <View key={title}>
@@ -84,7 +84,7 @@ const Footer = (): ReactElement => {
                   </ExtLink>
                 </View>
               )
-          )}
+          )} */}
         </Row>
       </Row>
     </StyledContainer>

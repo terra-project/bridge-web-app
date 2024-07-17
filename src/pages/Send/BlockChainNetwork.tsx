@@ -1,6 +1,6 @@
 import { ReactElement } from 'react'
 import styled from 'styled-components'
-import { useRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilState } from 'recoil'
 import wormholeGif from 'images/wormhole.gif'
 import ibcGif from 'images/ibc.gif'
 import shuttleGif from 'images/shuttle.gif'
@@ -12,7 +12,7 @@ import { BlockChainType, BridgeType, getDefaultBridge } from 'types/network'
 import useAuth from 'hooks/useAuth'
 
 import SendStore from 'store/SendStore'
-import NetworkStore from 'store/NetworkStore'
+// import NetworkStore from 'store/NetworkStore'
 
 import SelectBlockChain from '../../components/SelectBlockChain'
 import SelectBridge from 'components/SelectBridge'
@@ -45,7 +45,7 @@ const BlockChainNetwork = (): ReactElement => {
   const [fromBlockChain, setFromBlockChain] = useRecoilState(
     SendStore.fromBlockChain
   )
-  const isTestnet = useRecoilValue(NetworkStore.isTestnet)
+  // const isTestnet = useRecoilValue(NetworkStore.isTestnet)
   const [bridgeUsed, setBridgeUsed] = useRecoilState(SendStore.bridgeUsed)
   useUpdateBridgeType()
   const { setBlockchainStorage } = useAuth()
@@ -82,11 +82,11 @@ const BlockChainNetwork = (): ReactElement => {
               })
             },
             optionList: [
-              {
-                label: NETWORK.blockChainName[BlockChainType.terra],
-                value: BlockChainType.terra,
-                isDisabled: fromBlockChain === BlockChainType.terra,
-              },
+              // {
+              //   label: NETWORK.blockChainName[BlockChainType.terra],
+              //   value: BlockChainType.terra,
+              //   isDisabled: fromBlockChain === BlockChainType.terra,
+              // },
               {
                 label: NETWORK.blockChainName[BlockChainType.ethereum],
                 value: BlockChainType.ethereum,
@@ -102,41 +102,41 @@ const BlockChainNetwork = (): ReactElement => {
                 value: BlockChainType.hmy,
                 isDisabled: fromBlockChain === BlockChainType.hmy,
               },
-              {
-                label: NETWORK.blockChainName[BlockChainType.osmo],
-                value: BlockChainType.osmo,
-                isDisabled: fromBlockChain === BlockChainType.osmo,
-              },
-              {
-                label: NETWORK.blockChainName[BlockChainType.scrt],
-                value: BlockChainType.scrt,
-                isDisabled: fromBlockChain === BlockChainType.scrt,
-              },
-              {
-                label: NETWORK.blockChainName[BlockChainType.inj],
-                value: BlockChainType.inj,
-                isDisabled: fromBlockChain === BlockChainType.inj,
-              },
-              {
-                label: NETWORK.blockChainName[BlockChainType.cosmos],
-                value: BlockChainType.cosmos,
-                isDisabled: fromBlockChain === BlockChainType.cosmos,
-              },
-              {
-                label: NETWORK.blockChainName[BlockChainType.avalanche],
-                value: BlockChainType.avalanche,
-                isDisabled: fromBlockChain === BlockChainType.avalanche,
-              },
-              {
-                label: NETWORK.blockChainName[BlockChainType.fantom],
-                value: BlockChainType.fantom,
-                isDisabled: fromBlockChain === BlockChainType.fantom,
-              },
-              {
-                label: NETWORK.blockChainName[BlockChainType.polygon],
-                value: BlockChainType.polygon,
-                isDisabled: fromBlockChain === BlockChainType.polygon,
-              },
+              // {
+              //   label: NETWORK.blockChainName[BlockChainType.osmo],
+              //   value: BlockChainType.osmo,
+              //   isDisabled: fromBlockChain === BlockChainType.osmo,
+              // },
+              // {
+              //   label: NETWORK.blockChainName[BlockChainType.scrt],
+              //   value: BlockChainType.scrt,
+              //   isDisabled: fromBlockChain === BlockChainType.scrt,
+              // },
+              // {
+              //   label: NETWORK.blockChainName[BlockChainType.inj],
+              //   value: BlockChainType.inj,
+              //   isDisabled: fromBlockChain === BlockChainType.inj,
+              // },
+              // {
+              //   label: NETWORK.blockChainName[BlockChainType.cosmos],
+              //   value: BlockChainType.cosmos,
+              //   isDisabled: fromBlockChain === BlockChainType.cosmos,
+              // },
+              // {
+              //   label: NETWORK.blockChainName[BlockChainType.avalanche],
+              //   value: BlockChainType.avalanche,
+              //   isDisabled: fromBlockChain === BlockChainType.avalanche,
+              // },
+              // {
+              //   label: NETWORK.blockChainName[BlockChainType.fantom],
+              //   value: BlockChainType.fantom,
+              //   isDisabled: fromBlockChain === BlockChainType.fantom,
+              // },
+              // {
+              //   label: NETWORK.blockChainName[BlockChainType.polygon],
+              //   value: BlockChainType.polygon,
+              //   isDisabled: fromBlockChain === BlockChainType.polygon,
+              // },
             ],
             label: 'FROM',
           }}
@@ -166,58 +166,58 @@ const BlockChainNetwork = (): ReactElement => {
                 value: BlockChainType.terra,
                 isDisabled: toBlockChain === BlockChainType.terra,
               },
-              {
-                label: NETWORK.blockChainName[BlockChainType.ethereum],
-                value: BlockChainType.ethereum,
-                isDisabled: toBlockChain === BlockChainType.ethereum,
-              },
-              {
-                label: NETWORK.blockChainName[BlockChainType.bsc],
-                value: BlockChainType.bsc,
-                isDisabled: toBlockChain === BlockChainType.bsc,
-              },
-              {
-                label: NETWORK.blockChainName[BlockChainType.hmy],
-                value: BlockChainType.hmy,
-                isDisabled: toBlockChain === BlockChainType.hmy,
-              },
-              {
-                label: NETWORK.blockChainName[BlockChainType.osmo],
-                value: BlockChainType.osmo,
-                isDisabled: toBlockChain === BlockChainType.osmo || isTestnet,
-              },
-              {
-                label: NETWORK.blockChainName[BlockChainType.scrt],
-                value: BlockChainType.scrt,
-                isDisabled: toBlockChain === BlockChainType.scrt || isTestnet,
-              },
-              {
-                label: NETWORK.blockChainName[BlockChainType.inj],
-                value: BlockChainType.inj,
-                isDisabled: toBlockChain === BlockChainType.inj || isTestnet,
-              },
-              {
-                label: NETWORK.blockChainName[BlockChainType.cosmos],
-                value: BlockChainType.cosmos,
-                isDisabled: toBlockChain === BlockChainType.cosmos || isTestnet,
-              },
-              {
-                label: NETWORK.blockChainName[BlockChainType.avalanche],
-                value: BlockChainType.avalanche,
-                isDisabled:
-                  toBlockChain === BlockChainType.avalanche || isTestnet,
-              },
-              {
-                label: NETWORK.blockChainName[BlockChainType.fantom],
-                value: BlockChainType.fantom,
-                isDisabled: toBlockChain === BlockChainType.fantom || isTestnet,
-              },
-              {
-                label: NETWORK.blockChainName[BlockChainType.polygon],
-                value: BlockChainType.polygon,
-                isDisabled:
-                  toBlockChain === BlockChainType.polygon || isTestnet,
-              },
+              // {
+              //   label: NETWORK.blockChainName[BlockChainType.ethereum],
+              //   value: BlockChainType.ethereum,
+              //   isDisabled: toBlockChain === BlockChainType.ethereum,
+              // },
+              // {
+              //   label: NETWORK.blockChainName[BlockChainType.bsc],
+              //   value: BlockChainType.bsc,
+              //   isDisabled: toBlockChain === BlockChainType.bsc,
+              // },
+              // {
+              //   label: NETWORK.blockChainName[BlockChainType.hmy],
+              //   value: BlockChainType.hmy,
+              //   isDisabled: toBlockChain === BlockChainType.hmy,
+              // },
+              // {
+              //   label: NETWORK.blockChainName[BlockChainType.osmo],
+              //   value: BlockChainType.osmo,
+              //   isDisabled: toBlockChain === BlockChainType.osmo || isTestnet,
+              // },
+              // {
+              //   label: NETWORK.blockChainName[BlockChainType.scrt],
+              //   value: BlockChainType.scrt,
+              //   isDisabled: toBlockChain === BlockChainType.scrt || isTestnet,
+              // },
+              // {
+              //   label: NETWORK.blockChainName[BlockChainType.inj],
+              //   value: BlockChainType.inj,
+              //   isDisabled: toBlockChain === BlockChainType.inj || isTestnet,
+              // },
+              // {
+              //   label: NETWORK.blockChainName[BlockChainType.cosmos],
+              //   value: BlockChainType.cosmos,
+              //   isDisabled: toBlockChain === BlockChainType.cosmos || isTestnet,
+              // },
+              // {
+              //   label: NETWORK.blockChainName[BlockChainType.avalanche],
+              //   value: BlockChainType.avalanche,
+              //   isDisabled:
+              //     toBlockChain === BlockChainType.avalanche || isTestnet,
+              // },
+              // {
+              //   label: NETWORK.blockChainName[BlockChainType.fantom],
+              //   value: BlockChainType.fantom,
+              //   isDisabled: toBlockChain === BlockChainType.fantom || isTestnet,
+              // },
+              // {
+              //   label: NETWORK.blockChainName[BlockChainType.polygon],
+              //   value: BlockChainType.polygon,
+              //   isDisabled:
+              //     toBlockChain === BlockChainType.polygon || isTestnet,
+              // },
             ],
             label: 'TO',
           }}
