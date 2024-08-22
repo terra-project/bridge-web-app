@@ -25,11 +25,11 @@ const memo = atom<string>({
 })
 const fromBlockChain = atom<BlockChainType>({
   key: 'sendFromBlockChain',
-  default: BlockChainType.terra,
+  default: BlockChainType.ethereum,
 })
 const toBlockChain = atom<BlockChainType>({
   key: 'sendToBlockChain',
-  default: BlockChainType.ethereum,
+  default: BlockChainType.terra,
 })
 const bridgeUsed = atom<BridgeType | undefined>({
   key: 'bridgeUsed',
