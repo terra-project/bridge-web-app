@@ -77,12 +77,7 @@ const NextOrApproveButton = ({
   }
 
   const isDisabled =
-    bridgeUsed === BridgeType.ibc ||
-    bridgeUsed === BridgeType.wormhole ||
-    (bridgeUsed === BridgeType.shuttle &&
-      (Date.now() >= 1692104400000
-        ? fromBlockChain !== BlockChainType.hmy
-        : fromBlockChain === BlockChainType.terra))
+    bridgeUsed === BridgeType.ibc || bridgeUsed === BridgeType.wormhole
 
   return (
     <Button
