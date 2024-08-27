@@ -209,7 +209,11 @@ const SelectEtherBaseWalletModal = (): ReactElement => {
       WalletEnum.CoinbaseWallet,
     ]
   } else if (fromBlockChain === BlockChainType.bsc) {
-    buttons = [WalletEnum.Binance, WalletEnum.MetaMask]
+    buttons = [
+      WalletEnum.Binance,
+      WalletEnum.WalletConnect,
+      WalletEnum.MetaMask,
+    ]
   } else if (NETWORK.isEtherBaseBlockChain(fromBlockChain)) {
     buttons = [WalletEnum.MetaMask]
   } else if (isIbcNetwork(fromBlockChain)) {

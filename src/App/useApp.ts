@@ -13,13 +13,13 @@ import {
 const defaultList: AssetType[] = [
   {
     symbol: 'LUNC',
-    name: 'Luna Classic',
-    logoURI: `${NETWORK.TERRA_ASSETS_URL}/icon/svg/Luna.svg`,
+    name: 'Wrapped Luna Classic',
+    logoURI: `${NETWORK.TERRA_ASSETS_URL}/icon/svg/LUNC.svg`,
     terraToken: AssetNativeDenomEnum.uluna,
   },
   {
     symbol: AssetSymbolEnum.UST,
-    name: 'Terra Classic USD',
+    name: 'Wrapped TerraClassicUSD',
     logoURI: `${NETWORK.TERRA_ASSETS_URL}/icon/60/UST.png`,
     terraToken: AssetNativeDenomEnum.uusd,
   },
