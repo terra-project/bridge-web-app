@@ -7,8 +7,6 @@ import { COLOR } from 'consts'
 
 import { Text, View } from 'components'
 
-import useTerraAssets from 'hooks/useTerraAssets'
-import { TerraAssetsPathEnum } from 'types'
 import FormImage from 'components/FormImage'
 
 const StyledBg = styled.div`
@@ -53,23 +51,9 @@ const StyledDesc = styled(Text)`
   }
 `
 
-const StyledEnterAnyway = styled(Text)`
-  cursor: pointer;
-  color: ${COLOR.primary};
-  text-decoration: underline;
-`
-
 const UnderMaintenance = (): ReactElement => {
-  const [hideMaintenance, setHideMaintenance] = useState(false)
-  const hide = (): void => setHideMaintenance(true)
-
-  const { data: maintenance } = useTerraAssets<{
-    classic: boolean
-  }>({
-    path: TerraAssetsPathEnum.station_maintenamce,
-  })
-
-  const isUnderMaintenance = maintenance?.classic
+  const [hideMaintenance] = useState(false)
+  const isUnderMaintenance = true
 
   if (isUnderMaintenance && false === hideMaintenance) {
     return (
@@ -78,9 +62,10 @@ const UnderMaintenance = (): ReactElement => {
           <View style={{ marginBottom: 20 }}>
             <FormImage size={80} src={maintenancePng} />
           </View>
-          <StyledTitle>Under Maintenance</StyledTitle>
-          <StyledDesc>We will be back on Columbus-5 soon.</StyledDesc>
-          <StyledEnterAnyway onClick={hide}>Enter anyway</StyledEnterAnyway>
+          <StyledTitle>Terra Classic Shuttle Bridge</StyledTitle>
+          <StyledDesc>
+            The service has been shut down as of 31 October 2024.
+          </StyledDesc>
         </StyledContainer>
       </StyledBg>
     )
